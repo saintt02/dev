@@ -1,2 +1,2 @@
 # dev
-my dev repository, all my things are here (almost)
+my dev repository, all my Golang things are here
