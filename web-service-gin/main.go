@@ -1,5 +1,7 @@
 package main
 
+// tested on Postman instead of Curl.
+
 import (
 	"net/http"
 
