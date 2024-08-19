@@ -37,13 +37,16 @@ func main() {
 		default:
 			fmt.Println("Invalid option, please try again.")
 		}
-		
+
 	}
 }
 
 func AddTaskMenu() {
 	reader := bufio.NewReader(os.Stdin)
 
+	// reader.ReadString('\n'): Esta función lee toda la línea de entrada hasta que encuentra un salto de línea (\n). Esto significa que la descripción podrá incluir espacios.
+
+	// strings.TrimSpace(): Este método se usa para eliminar cualquier espacio en blanco o saltos de línea al principio o al final de la cadena. Es útil para limpiar la entrada antes de procesarla.
 	fmt.Print("Enter task name: ")
 	name, _ := reader.ReadString('\n')
 	name = strings.TrimSpace(name)
@@ -56,6 +59,7 @@ func AddTaskMenu() {
 	dateStr, _ := reader.ReadString('\n')
 	dateStr = strings.TrimSpace(dateStr)
 
+	// ("2006-01-02"): Es un layout específico utilizado por Go como referencia para saber cómo interpretar una cadena de texto como fecha. Debes usar este formato exacto cuando llames a time.Parse() para que el analizador sepa qué partes de la cadena corresponden a los días, meses y años.
 	date, err := time.Parse("2006-01-02", dateStr)
 	if err != nil {
 			fmt.Println("Invalid date format, please use YYYY-MM-DD.")
