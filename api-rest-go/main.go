@@ -52,7 +52,6 @@ func postAlbum(c *gin.Context) {
 }
 
 func main() {
-
 	router := gin.Default()
 	router.GET("/albums", getAlbums)
 	router.POST("/postalbums", postAlbum)
